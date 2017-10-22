@@ -28,6 +28,7 @@ $cta | determines if censor or return strictly not good text to be fixed. | null
 This returns an Array, if $cta is set to 'judge' then an extra param 'judgement' = *Pass* OR *Fail* will be included.
 
 ##### example var dump
+<pre>
 array (
   'fixedCount' => 4,
   'wordsFound' => 
@@ -57,6 +58,7 @@ array (
   'edited' => 'This a good F###### test. As I sit on my a## typing away, I roll with the hottest b###### and I simply don\'t give a s#### ',
   'judgement' => 'Fail',
 )
+</pre>
 
 
 ### isRequired()
