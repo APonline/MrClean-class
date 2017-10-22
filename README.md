@@ -20,12 +20,12 @@ This doesn't return any value it just exits the function after setting a variabl
 
 Checks content for specified bad language to censor or to send back for correction.
 
-Param | Description
---- | --- 
-$content | A string or large text.
-$cta | determines if censor or return strictly not good text to be fixed.
+Param | Description | Value
+--- | --- | ---
+$content | A string or large text. | *text*
+$cta | determines if censor or return strictly not good text to be fixed. | null/censor/judge
 
-This returns an Array, if $cta is set then an extra param 'judgement' = *pass* OR *fail* will be included.
+This returns an Array, if $cta is set then an extra param 'judgement' = *Pass* OR *Fail* will be included.
 
 
 ### isRequired()
