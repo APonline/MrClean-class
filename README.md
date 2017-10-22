@@ -25,7 +25,38 @@ Param | Description | Value
 $content | A string or large text. | *text*
 $cta | determines if censor or return strictly not good text to be fixed. | null/censor/judge
 
-This returns an Array, if $cta is set then an extra param 'judgement' = *Pass* OR *Fail* will be included.
+This returns an Array, if $cta is set to 'judge' then an extra param 'judgement' = *Pass* OR *Fail* will be included.
+
+##### example var dump
+array (
+  'fixedCount' => 4,
+  'wordsFound' => 
+  array (
+    0 => 
+    array (
+      'word' => 'Fucking',
+      'count' => 1,
+    ),
+    1 => 
+    array (
+      'word' => 'ass',
+      'count' => 1,
+    ),
+    2 => 
+    array (
+      'word' => 'bitches',
+      'count' => 1,
+    ),
+    3 => 
+    array (
+      'word' => 'shit',
+      'count' => 1,
+    ),
+  ),
+  'original' => 'This a good Fucking test. As I sit on my ass typing away, I roll with the hottest bitches and I simply don\'t give a shit.',
+  'edited' => 'This a good F###### test. As I sit on my a## typing away, I roll with the hottest b###### and I simply don\'t give a s#### ',
+  'judgement' => 'Fail',
+)
 
 
 ### isRequired()
