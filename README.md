@@ -15,6 +15,10 @@ $char | A signular symbol declared.
 
 This doesn't return any value it just exits the function after setting a variable.
 
+<pre>
+	$cleaner = new MrClean();
+	$setSym = $cleaner->badLanguageFix('#');
+</pre>
 
 ### badLanguage()
 
@@ -26,6 +30,12 @@ $content | A string or large text. | *text*
 $cta | determines if censor or return strictly not good text to be fixed. | null/censor/judge
 
 This returns an Array, if $cta is set to 'judge' then an extra param 'judgement' = *Pass* OR *Fail* will be included.
+
+<pre>
+	$cleaner = new MrClean();
+	$setSym = $cleaner->badLanguageFix('#');
+	$languageTest = $cleaner->badLanguage($content, 'judge');
+</pre>
 
 ##### example var dump
 <pre>
@@ -74,6 +84,19 @@ $args | Array of data submitted by the form.
 $req | Array of required fields.
 
 This returns a Boolean, False will equal a fail.
+
+<pre>
+	$req = array('firstname','lastname','email','phone');
+			
+	$cleanReq = new Posts();
+	$test = $cleanReq->isRequired($data, $req);
+
+	if($test){
+		//passed
+	}else{
+		//failed
+	}
+</pre>
 
 
 ### makeSEOUrl()
