@@ -43,7 +43,7 @@ class MrClean
   	 * @descript   Checks content for specified bad language to censor or to send back for correction.
   	 * @params     $content = A string or large text.
   	 * @params     $cta = determines if censor or return strictly not good text to be fixed.
-  	 * @returns    Array || Boolean
+  	 * @returns    Array, if $cta is set then an extra param 'judgement' = *pass* OR *fail* will be included.
   	 */
 	public function badLanguage($content, $cta = null){
 		
@@ -163,7 +163,7 @@ class MrClean
 	
 	/**
   	 * @name       undoSEOURL
-  	 * @descript   Turns string into seo friendly slug.
+  	 * @descript   Turns string into display text from a friendly slug.
   	 * @params     $string = String to be altered.
   	 * @returns    String
   	 */
