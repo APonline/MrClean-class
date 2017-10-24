@@ -116,11 +116,11 @@ class MrClean
   	 * @returns    Boolean
   	 */
 	public function isRequired($args, $req){
-	
+	 
 		//Unset non required fields
-		foreach($args as $arg){
-			if(in_array($arg, $req))
-				unset($args[$arg]);
+		foreach($args as $key=>$arg){
+			if(!in_array($key, $req))
+				unset($args[$key]);
 		}
 		
 		//Make sure Arg isset
