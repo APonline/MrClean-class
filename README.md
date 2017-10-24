@@ -10,7 +10,7 @@ This is a class for PHP house keeping and cleaning of regularly needed functions
 Allows the user to change the censor symbol used.
 
 Param | Description
---- | --- 
+--- | ---
 $char | A signular symbol declared.
 
 This doesn't return any value it just exits the function after setting a variable.
@@ -41,24 +41,24 @@ This returns an Array, if $cta is set to 'judge' then an extra param 'judgement'
 <pre>
 array (
   'fixedCount' => 4,
-  'wordsFound' => 
+  'wordsFound' =>
   array (
-    0 => 
+    0 =>
     array (
       'word' => 'Fucking',
       'count' => 1,
     ),
-    1 => 
+    1 =>
     array (
       'word' => 'ass',
       'count' => 1,
     ),
-    2 => 
+    2 =>
     array (
       'word' => 'bitches',
       'count' => 1,
     ),
-    3 => 
+    3 =>
     array (
       'word' => 'shit',
       'count' => 1,
@@ -74,25 +74,47 @@ array (
 ### isRequired()
 
 Checks if required fields are:
-1. Actually set as a field.
-2. Value isn't just blank spaces.
-3. Value isn't just blank.
+1. Processes content for bad language.
+2. Actually set as a field.
+3. Value isn't just blank spaces.
+4. Value isn't just blank.
 
 Param | Description
---- | --- 
+--- | ---
 $args | Array of data submitted by the form.
 $req | Array of required fields.
+$filler | Replaces empty strings with a value if no $req is set.
 
-This returns a Boolean, False will equal a fail.
+This returns an Array containing a Boolean and an array of the data cleansed.
 
 <pre>
 	$req = array('firstname','lastname','email','phone');
-			
-	$cleanReq = new Posts();
-	$test = $cleanReq->isRequired($data, $req);
 
-	if($test){
+	$cleanReq = new Posts();
+	$test = $cleanReq->isRequired($data, $req, null);
+
+	if($test['success']){
 		//passed
+	}else{
+		//failed
+	}
+</pre>
+
+OR
+
+<pre>
+	$data = array(
+		'name'=>'Andrew',
+		'email'=>'andrew@andrewphillips.online',
+		'bio'=>'',
+	);
+
+	$cleanReq = new Posts();
+	$test = $cleanReq->isRequired($data, null, 'N/A');
+
+	if($test['success']){
+		//passed
+		var_dump($test['data']);
 	}else{
 		//failed
 	}
@@ -104,7 +126,7 @@ This returns a Boolean, False will equal a fail.
 Turns string into seo friendly slug.
 
 Param | Description
---- | --- 
+--- | ---
 $string | String to be altered.
 
 This returns a String value.
@@ -115,7 +137,7 @@ This returns a String value.
 Turns string into display text from a friendly slug.
 
 Param | Description
---- | --- 
+--- | ---
 $string | String to be altered.
 
 This returns a String value.
